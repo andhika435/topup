@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FCX Top-Up</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #222;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .section {
+      display: none;
+      padding: 2em;
+    }
+    .active {
+      display: block;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #0ff;
+      color: #000;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      max-width: 400px;
+    }
+    .transaction, .promo, .testimoni {
+      background: #222;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #222;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>FCX Top-Up</h1>
+  <nav>
+    <a onclick="showPage('home')">Beranda</a>
+    <a onclick="showPage('topup')">Top-Up</a>
+    <a onclick="showPage('history')">Riwayat</a>
+    <a onclick="showPage('help')">Bantuan</a>
+    <a onclick="showPage('profile')">Profil</a>
+    <a onclick="showPage('promo')">Promo</a>
+    <a onclick="showPage('testimoni')">Testimoni</a>
+    <a onclick="showPage('about')">Tentang Kami</a>
+  </nav>
+</header>
+
+<!-- 1. BERANDA -->
+<section id="home" class="section active">
+  <h2>Selamat Datang di FCX Top-Up</h2>
+  <p>Top-Up Diamond FCX dengan harga termurah dan layanan tercepat.</p>
+  <a class="cta-button" onclick="showPage('topup')">Mulai Top-Up</a>
+</section>
+
+<!-- 2. TOP-UP -->
+<section id="topup" class="section">
+  <h2>Form Top-Up</h2>
+  <form onsubmit="submitTopUp(event)">
+    <input type="text" id="userID" placeholder="Masukkan ID Pengguna" required />
+    <select id="amount">
+      <option value="10">10 Diamond - Rp1.000</option>
+      <option value="50">50 Diamond - Rp5.000</option>
+      <option value="100">100 Diamond - Rp10.000</option>
+    </select>
+    <select id="payment">
+      <option value="gopay">GoPay</option>
+      <option value="dana">DANA</option>
+      <option value="ovo">OVO</option>
+    </select>
+    <button type="submit">Bayar Sekarang</button>
+  </form>
+  <div id="topupMsg"></div>
+</section>
+
+<!-- 3. RIWAYAT -->
+<section id="history" class="section">
+  <h2>Riwayat Transaksi</h2>
+  <div id="transactionHistory">
+    <p>Belum ada transaksi.</p>
+  </div>
+</section>
+
+<!-- 4. BANTUAN -->
+<section id="help" class="section">
+  <h2>Bantuan</h2>
+  <p><strong>Q:</strong> Kenapa diamond belum masuk?<br><strong>A:</strong> Tunggu 1–5 menit. Jika masih belum, hubungi admin WhatsApp.</p>
+  <p><strong>Q:</strong> Metode apa saja?<br><strong>A:</strong> Kami mendukung GoPay, DANA, OVO.</p>
+</section>
+
+<!-- 5. PROFIL -->
+<section id="profile" class="section">
+  <h2>Profil Pengguna</h2>
+  <p>Nama: <strong>PlayerX</strong></p>
+  <p>ID Game: <strong>FCX123456</strong></p>
+  <p>Status: <span style="color:lime;">Aktif</span></p>
+</section>
+
+<!-- 6. PROMO -->
+<section id="promo" class="section">
+  <h2>Promo & Event</h2>
+  <div class="promo">
+    <strong>🎉 Cashback 20%</strong> untuk top-up di atas 100 Diamond hingga 31 Mei 2025!
+  </div>
+  <div class="promo">
+    <strong>🔥 Event Ramadhan</strong> – Bonus 10 Diamond setiap transaksi!
+  </div>
+</section>
+
+<!-- 7. TESTIMONI -->
+<section id="testimoni" class="section">
+  <h2>Testimoni</h2>
+  <div class="testimoni">
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>"Cepat banget! Top-Up masuk dalam hitungan detik."</p>
+    <p>- Andi, Surabaya</p>
+  </div>
+  <div class="testimoni">
+    <p>⭐️⭐️⭐️⭐️</p>
+    <p>"Harga murah dan pelayanan ramah, mantap FCX Top-Up!"</p>
+    <p>- Rina, Jakarta</p>
+  </div>
+</section>
+
+<!-- 8. TENTANG KAMI -->
+<section id="about" class="section">
+  <h2>Tentang Kami</h2>
+  <p>Aplikasi ini dikembangkan oleh:</p>
+  <p><strong>Andhika Angga Kurniawan</strong><br>Kelas: <strong>X RPL 2</strong></p>
+  <p>Tujuan: Membuat aplikasi top-up sederhana untuk keperluan tugas sekolah dan belajar mandiri.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 FCX Top-Up. Developed by <strong>Andhika Angga Kurniawan - X RPL 2</strong></p>
+</footer>
+
+<script>
+  const pages = document.querySelectorAll(".section");
+  const historyDiv = document.getElementById("transactionHistory");
+
+  function showPage(id) {
+    pages.forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+  }
+
+  function submitTopUp(e) {
+    e.preventDefault();
+    const userID = document.getElementById("userID").value;
+    const amount = document.getElementById("amount").value;
+    const payment = document.getElementById("payment").value;
+    const msg = `✅ Top-Up ${amount} Diamond untuk ID ${userID} via ${payment.toUpperCase()} berhasil!`;
+    document.getElementById("topupMsg").innerHTML = `<p style="color:lime;">${msg}</p>`;
+
+    const tx = document.createElement("div");
+    tx.className = "transaction";
+    tx.innerHTML = `<strong>ID:</strong> ${userID} | <strong>Diamond:</strong> ${amount} | <strong>Metode:</strong> ${payment.toUpperCase()}`;
+    if (historyDiv.querySelector("p")) historyDiv.innerHTML = "";
+    historyDiv.appendChild(tx);
+  }
+</script>
+
+</body>
+</html>
